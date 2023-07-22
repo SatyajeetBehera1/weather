@@ -1,6 +1,6 @@
-import hotBg from "./assets/hot.jpeg";
-import coldBg from "./assets/cold.jpeg";
-import rainyBg from "./assets/rainy.jpeg";
+import hotBg from "./assets/hot.jpg";
+import coldBg from "./assets/cold.webp";
+import rainyBg from "./assets/rain.jpg";
 import Descriptions from "./components/Descriptions";
 import { useEffect, useState } from "react";
 import { getFormattedWeatherData } from "./weatherService";
