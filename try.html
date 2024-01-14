@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const API_KEY = "97395214be1ba735c6afc21dcc524225";
+    // const API_KEY = "37f5322384188df415959b0fd4bd9760";
+
+    const makeIconURL = (iconId) =>
+      `https://openweathermap.org/img/wn/${iconId}@2x.png`;
+
+    const getFormattedWeatherData = async (city, units = "metric") => {
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
+    //   const URL = `https://history.openweathermap.org/data/2.5/history/${city}?&start={start}&end={end}&appid=${API_KEY}`;
+
+      const data = await fetch(URL)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+          return data;
+        });
+      const {
+        weather,
+        main: {
+          temp,
+          feels_like,
+          temp_min,
+          temp_max,
+          pressure,
+          humidity,
+          sea_level,
+        },
+        sys: { sunrise, sunset },
+        wind: { speed },
+        sys: { country },
+        name,
+        cod,
+      } = data;
+      console.log(data);
+      const { description, icon, main } = weather[0];
+    };
+    console.log('data')
+    getFormattedWeatherData('angul')
+  </script>
+</html>
